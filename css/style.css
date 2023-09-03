@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: 'Titan One', cursive;
+
+    background-image: url("../img/world.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top 70px right 0;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2em;
+
+    margin: 0 auto;
+    width: 80%;
+}
+
+.container--header  {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    gap: 1em;
+}
+
+.container--header-title{
+    flex: 70%;
+
+    color: #434D54;
+    letter-spacing: 1px;
+    border-radius: 50px;
+}
+
+.container--header-button{
+    flex: 20%;
+}
+
+.container--cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 100%;
+    gap: 2em;
+    font-size: 1.5em;
+    margin-bottom: 2rem;
+}
+
+.container--cards-card {
+    display: flex;
+    flex-basis: 300px;
+
+    min-width: 300px;
+    min-height: 200px;
+
+    justify-content: center;
+    border-radius: 20px;
+}
+
+button{
+    display: flex;
+    padding: 1em;
+    font-size: 1.2em;
+
+    border: none;
+    border-radius: 20px;
+
+    background-color: antiquewhite;
+    color: sandybrown;
+    font-family: 'Titan One', cursive;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: sandybrown;
+    color: antiquewhite;
+}
+                            /*Flip animation on cards*/
+.container--cards-card{
+    perspective: 1000px;
+}
+.container--cards-card{
+    position: relative;
+
+    transition: all 1s linear;
+    transform-style: preserve-3d;
+}
+.front,
+.back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+}
+.front{
+    background-color: antiquewhite;
+    color: sandybrown;
+    z-index: 2;
+    backface-visibility: hidden;
+}
+.back{
+    background-color: sandybrown;
+    color: antiquewhite;
+    z-index: 1;
+
+    transform: rotateY(180deg);
+
+}
+.container--cards-card:hover{
+    transform: rotateY(180deg);
+    transition: all 1s linear;
+}
+
+@media screen and (max-device-width: 450px){
+    .container--header-title{ 
+        color: sandybrown;
+    }
+    .container--cards-card {
+        flex-basis: 400px;
+    }
+}
